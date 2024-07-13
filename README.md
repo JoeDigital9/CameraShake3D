@@ -10,4 +10,4 @@ A simple system for easily implementing camera shake in your Godot projects.
 NOTE: Your games core camera movement should be done through a Parent node of the camera as to allow the Camera to shake freely as a child object.
 
 
-Test change
+Undo
