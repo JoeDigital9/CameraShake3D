@@ -1,6 +1,8 @@
 extends Object
 class_name CameraShake
 
+#test
+
 var camera : Camera3D
 
 var strength : float = 1
