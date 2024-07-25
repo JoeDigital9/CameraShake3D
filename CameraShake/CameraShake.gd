@@ -38,7 +38,7 @@ func _update(delta):
 		pass
 	pass
 
-func _start_shake(pMagnitude:float, pDecay:float):
+func _start_shake(pDecay:float, pMagnitude:float):
 	if camera == null:
 		return
 
