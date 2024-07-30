@@ -1,28 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://yx737f75vjqm"]
+[gd_scene load_steps=11 format=3 uid="uid://yx737f75vjqm"]
 
 [ext_resource type="Script" path="res://addons/camera-shake/Example/CameraShakeExample.gd" id="1_dnlby"]
 [ext_resource type="Script" path="res://addons/camera-shake/CameraShake/CameraShakeNode.gd" id="2_tqdri"]
+[ext_resource type="Texture2D" uid="uid://b4os2klwvn0op" path="res://addons/camera-shake/Example/Grid_albedo.png" id="3_hjse2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n0cc5"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_h1kv0"]
+sky_material = SubResource("ProceduralSkyMaterial_n0cc5")
+
+[sub_resource type="Environment" id="Environment_mdmt8"]
+background_mode = 2
+sky = SubResource("Sky_h1kv0")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5q67"]
+albedo_texture = ExtResource("3_hjse2")
+uv1_scale = Vector3(4, 4, 4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jq37b"]
+material = SubResource("StandardMaterial3D_q5q67")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypkfw"]
+albedo_texture = ExtResource("3_hjse2")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_phu41"]
+material = SubResource("StandardMaterial3D_ypkfw")
+size = Vector2(10, 10)
 
 [node name="ShakeExampleScene" type="Node3D" node_paths=PackedStringArray("shake_node")]
 script = ExtResource("1_dnlby")
 shake_node = NodePath("ShakeNode")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mdmt8")
 
 [node name="ShakeNode" type="Node" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("2_tqdri")
 camera = NodePath("../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.25, 2.08165e-12)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, -3)
 mesh = SubResource("BoxMesh_jq37b")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.08165e-12, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -2)
 mesh = SubResource("BoxMesh_jq37b")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.08165e-12, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -2)
 mesh = SubResource("BoxMesh_jq37b")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_phu41")

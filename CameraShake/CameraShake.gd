@@ -60,7 +60,7 @@ func shake():
 
 	# Todo: Add rotational shake
 
-	camera.position += Vector3(offsetX * magnitude, offsetY * magnitude, 0) # shake y axis
+	camera.position = origin + Vector3(offsetX * magnitude, offsetY * magnitude, 0) # shake y axis
 
 func return_to_origin(delta):
 	camera.position = lerp(camera.position, origin, delta * 2)
