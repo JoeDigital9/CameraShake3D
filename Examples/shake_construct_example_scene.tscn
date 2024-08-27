@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://bi1on6evfh4oq"]
+
+[ext_resource type="Script" path="res://addons/camera-shake/Examples/CameraShakeConstructExample.gd" id="1_1ljpt"]
+[ext_resource type="Texture2D" uid="uid://b4os2klwvn0op" path="res://addons/camera-shake/Examples/grid_albedo.png" id="2_6n7kv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h8idl"]
+font_size = 50
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5q67"]
+albedo_texture = ExtResource("2_6n7kv")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jq37b"]
+material = SubResource("StandardMaterial3D_q5q67")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypkfw"]
+albedo_texture = ExtResource("2_6n7kv")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_phu41"]
+material = SubResource("StandardMaterial3D_ypkfw")
+size = Vector2(10, 10)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n0cc5"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_h1kv0"]
+sky_material = SubResource("ProceduralSkyMaterial_n0cc5")
+
+[sub_resource type="Environment" id="Environment_mdmt8"]
+background_mode = 2
+sky = SubResource("Sky_h1kv0")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="ShakeConstructExampleScene" type="Node3D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_1ljpt")
+camera = NodePath("Camera3D")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DemoInstructions_Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = 684.0
+offset_right = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "#1 Key: Light Shake
+#2 Key: Medium Shake
+#3 Key: Hard Shake
+#4 Key: Extreme Shake"
+label_settings = SubResource("LabelSettings_h8idl")
+
+[node name="Stage" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, -3)
+mesh = SubResource("BoxMesh_jq37b")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -2)
+mesh = SubResource("BoxMesh_jq37b")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -2)
+mesh = SubResource("BoxMesh_jq37b")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Stage"]
+mesh = SubResource("PlaneMesh_phu41")
+skeleton = NodePath("../..")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_mdmt8")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.25, 2.08165e-12)
