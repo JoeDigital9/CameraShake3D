@@ -1,4 +1,4 @@
-# SimpleCameraShake3D
+# CameraShake3D
 A simple system for easily implementing camera shake in your 3D Godot projects.
 
 **For best results**, have your core camera movement done through a Parent node to allow the Camera to shake 
@@ -14,3 +14,5 @@ freely as a child object is positioned by its parent.
 
 3. Construct and init the `CameraShake` class directly by calling `CameraShake.new(camera)`. 
 	- with the Construct way, you must also calling `CameraShake._update(delta)` in the `_process(delta)` function.
+
+For more information, please see the Examples folder in the repo!
