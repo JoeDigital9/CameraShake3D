@@ -1,5 +1,5 @@
 extends Object
-class_name CameraShake
+class_name CameraShake3D
 
 var camera : Camera3D
 

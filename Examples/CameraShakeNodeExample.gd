@@ -1,7 +1,7 @@
 extends Node
 class_name CameraShakeNodeExample
 
-@export var shake_node : CameraShakeNode
+@export var shake_node : CameraShake3DNode
 
 func _process(delta: float) -> void:
 	# test input

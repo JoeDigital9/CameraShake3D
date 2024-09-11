@@ -1,5 +1,5 @@
 extends Node
-class_name CameraShakeNode
+class_name CameraShake3DNode
 
 # Autoload me or drag me into your scene
 
@@ -9,7 +9,7 @@ class_name CameraShakeNode
 @export var decay : float = 1
 @export var magnitude : float = 1
 
-var cameraShake : CameraShake = null
+var cameraShake : CameraShake3D = null
 
 var initComplete : bool = false
 
@@ -17,7 +17,7 @@ func _ready():
 	if camera == null:
 		return
 
-	cameraShake = CameraShake.new(camera)
+	cameraShake = CameraShake3D.new(camera)
 	initComplete = true
 
 func _process(delta):
@@ -32,7 +32,7 @@ func _process(delta):
 
 func _init_camera_shake(pCamera):
 	camera = pCamera
-	cameraShake = CameraShake.new(camera)
+	cameraShake = CameraShake3D.new(camera)
 	initComplete = true
 
 func _shake():
