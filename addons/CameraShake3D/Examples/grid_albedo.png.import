@@ -3,17 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4os2klwvn0op"
-path.s3tc="res://.godot/imported/grid_albedo.png-26debdb33f6620c9d6ac06893a26cd80.s3tc.ctex"
-path.etc2="res://.godot/imported/grid_albedo.png-26debdb33f6620c9d6ac06893a26cd80.etc2.ctex"
+path.s3tc="res://.godot/imported/grid_albedo.png-a138cb20e4dc9089ce89d0eb98658bcc.s3tc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://addons/camera-shake/Examples/grid_albedo.png"
-dest_files=["res://.godot/imported/grid_albedo.png-26debdb33f6620c9d6ac06893a26cd80.s3tc.ctex", "res://.godot/imported/grid_albedo.png-26debdb33f6620c9d6ac06893a26cd80.etc2.ctex"]
+source_file="res://addons/CameraShake3D/Examples/grid_albedo.png"
+dest_files=["res://.godot/imported/grid_albedo.png-a138cb20e4dc9089ce89d0eb98658bcc.s3tc.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bi1on6evfh4oq"]
 
-[ext_resource type="Script" path="res://addons/camera-shake/Examples/CameraShakeConstructExample.gd" id="1_1ljpt"]
-[ext_resource type="Texture2D" uid="uid://b4os2klwvn0op" path="res://addons/camera-shake/Examples/grid_albedo.png" id="2_6n7kv"]
+[ext_resource type="Script" path="res://addons/CameraShake3D/Examples/CameraShakeConstructExample.gd" id="1_1ljpt"]
+[ext_resource type="Texture2D" uid="uid://b4os2klwvn0op" path="res://addons/CameraShake3D/Examples/grid_albedo.png" id="2_6n7kv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h8idl"]
 font_size = 50
