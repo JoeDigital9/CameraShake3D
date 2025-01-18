@@ -1,21 +1,21 @@
 extends Object
 class_name CameraShake3D
 
-var camera : Camera3D
+var camera: Camera3D
 
-var strength : float = 1
-var decay : float = 1
-var magnitude : float = 1
-var force : float = 0
-var range : float = 1
+var strength: float = 1
+var decay: float = 1
+var magnitude: float = 1
+var force: float = 0
+var range: float = 1
 
-var origin : Vector3
-var offset : = Vector2(1, 1)
+var origin: Vector3
+var offset := Vector2(1, 1)
 
 var isShaking = false
 var isAtOrigin = true
 
-var _rng : RandomNumberGenerator = RandomNumberGenerator.new()
+var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _init(pCamera):
 	camera = pCamera
@@ -33,12 +33,12 @@ func _update(delta):
 		pass
 	
 	# setting camera back to origin pos
-	if isShaking == false:
+	if isShaking == false and isAtOrigin == false:
 		return_to_origin(delta)
 		pass
 	pass
 
-func _start_shake(pDecay:float, pMagnitude:float):
+func _start_shake(pDecay: float, pMagnitude: float):
 	if camera == null:
 		return
 
@@ -51,7 +51,7 @@ func _start_shake(pDecay:float, pMagnitude:float):
 	isShaking = true
 
 func shake():
-	if !isShaking: 
+	if !isShaking:
 		return
 
 	var amount = force * strength
@@ -64,4 +64,8 @@ func shake():
 
 func return_to_origin(delta):
 	camera.position = lerp(camera.position, origin, delta * 2)
+
+	if origin.distance_to(camera.position) < 0.05:
+		isAtOrigin = true
+		pass
 	pass
