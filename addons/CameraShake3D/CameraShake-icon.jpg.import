@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpq5ug8mgtthe"
-path="res://.godot/imported/CameraShake-icon.jpg-d3073411d2ec5830f2b9284eb6836765.ctex"
+path="res://.godot/imported/CameraShake-icon.jpg-1232202783e50736f3509b2227778090.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/camera-shake/CameraShake-icon.jpg"
-dest_files=["res://.godot/imported/CameraShake-icon.jpg-d3073411d2ec5830f2b9284eb6836765.ctex"]
+source_file="res://addons/camera-shake/addons/CameraShake3D/CameraShake-icon.jpg"
+dest_files=["res://.godot/imported/CameraShake-icon.jpg-1232202783e50736f3509b2227778090.ctex"]
 
 [params]
 
